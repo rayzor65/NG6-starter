@@ -1,12 +1,15 @@
 import angular from 'angular';
 import Home from './home/home';
 import About from './about/about';
+import Shop from './shop/shop';
+import Cart from './cart/cart';
 
-let componentModule = angular.module('app.components', [
-  Home,
-  About
+export const namespace = 'app.components';
+
+angular.module('app.components', [
+    Home,
+    About,
+    Shop,
+    Cart
 ])
-
-.name;
-
-export default componentModule;
+    .name;

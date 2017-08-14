@@ -1,0 +1,21 @@
+<navbar></navbar>
+<div class="plates-header">
+    <div class="caption">
+        <h1>Plates</h1>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+</div>
+<section>
+    <div id="product-container">
+        <a href="#" ng-click="$ctrl.toggleOptions()">
+            <div ng-repeat="product in $ctrl.products" class="product">
+                <img width="200" src="media/{{product.image}}">
+                <p>{{product.brand}}</p>
+                <p>{{product.title}}</p>
+                <p>${{product.price}}</p>
+            </div>
+        </a>
+    </div>
+</section>
