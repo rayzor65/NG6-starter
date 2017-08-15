@@ -1,3 +1,18 @@
+<navbar></navbar>
 <div>
-  <h1>{{ $ctrl.name }}</h1>
+    <h1>Shopping Cart</h1>
+    <md-content layout-padding>
+        <div layout="row" class="cart-header">
+            <div class="cart-column">Product</div>
+            <div class="cart-column">Quantity</div>
+            <div class="cart-column">Total</div>
+            <div class="cart-column">Action</div>
+        </div>
+        <div layout="row" class="cart-body" ng-repeat="cartItem in $ctrl.cartItems">
+            <div class="cart-column">{{cartItem.product.title}}<br>{{cartItem.product.image}}</div>
+            <div class="cart-column">{{cartItem.quantity}}</div>
+            <div class="cart-column">${{cartItem.product.price * cartItem.quantity}}</div>
+            <div class="cart-column"><md-button ng-click="$ctrl.removeFromCart(cartItem.product)">Remove</md-button></div>
+        </div>
+    </md-content>
 </div>

@@ -1,5 +1,6 @@
 [
   {
+    "id": "1e998a0c-d061-4c31-b1b0-e30c654cc63d",
     "title": "Blue Stripe Stoneware Plate",
     "brand": "Kiriko",
     "price": 40,
@@ -7,6 +8,7 @@
     "image": "blue-stripe-stoneware-plate.jpg"
   },
   {
+    "id": "e74838b0-0b49-40e8-98c7-0707ffc81556",
     "title": "Hand Painted Blue Flat Dish",
     "brand": "Kiriko",
     "price": 28,
@@ -14,6 +16,7 @@
     "image": "hand-painted-blue-flat-dish.jpg"
   },
   {
+    "id": "bf76f9f2-6ca0-46fe-a073-fd2f3fcd8966",
     "title": "Heme",
     "brand": "Dust & Form",
     "price": 52,
@@ -21,6 +24,7 @@
     "image": "heme.jpg"
   },
   {
+    "id": "50c481f3-11bb-4c68-85af-6e6aed556c22",
     "title": "Mashiko-Yaki Green Small Plate",
     "brand": "Kiriko",
     "price": 28,
@@ -28,6 +32,7 @@
     "image": "mashiko-yaki-green-small-plate.jpg"
   },
   {
+    "id": "3aee2e4d-98e2-493c-b159-2ce48216816f",
     "title": "Mashiko-Yaki Indigo Small Plate",
     "brand": "Kiriko",
     "price": 28,
@@ -35,6 +40,7 @@
     "image": "mashiko-yaki-indigo-small-plate.jpg"
   },
   {
+    "id": "ba68996d-d8d0-4934-b6e6-2f1a83ee6e91",
     "title": "Mashiko-Yaki Saucer",
     "brand": "Kiriko",
     "price": 18,

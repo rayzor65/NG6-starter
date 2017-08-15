@@ -5,9 +5,16 @@ import cartComponent from './cart.component';
 let cartModule = angular.module('cart', [
   uiRouter
 ])
+    .config(($stateProvider) => {
+        "ngInject";
+        $stateProvider
+            .state('cart', {
+                url: '/cart',
+                component: 'cart',
+            })
+    })
+  .component('cart', cartComponent)
 
-.component('cart', cartComponent)
-
-.name;
+  .name;
 
 export default cartModule;

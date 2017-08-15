@@ -2,35 +2,29 @@
 export const namespace = 'app.components.shop';
 
 class ShopController {
-    constructor($scope, $mdDialog, cartService) {
+    constructor($scope, $mdDialog) {
         "ngInject";
         this.products = $scope.$ctrl.products;
         this.$mdDialog = $mdDialog;
-        cartService.addToCart();
     }
 
-    toggleOptions() {
-        return $mdDialog.show({
-
-                template: require('./mealPlanSelectionDialog/mealPlanSelectionDialog.tpl.html'),
-                controller: namespace + '.mealPlanSelectionDialog.controller',
-                controllerAs: 'MealPlanSelectionDialogController',
+    toggleOptions($event, product) {
+        return this.$mdDialog.show({
+                targetEvent: $event,
+                template: require('./shopDialog/shopDialog.html'),
+                controller: namespace + '.shopDialog.controller',
+                controllerAs: 'ShopDialogController',
                 locals: {
-                    mealPlans: mealPlans,
-                    fullUserInfo: user
-                }
-
-                controller: shopDia,
-                templateUrl: 'dialog1.tmpl.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
+                    product: product
+                },
                 clickOutsideToClose:true,
-                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                fullscreen: false,
+                openFrom: '#product'+product.id
             })
-                .then(function(answer) {
-                    $scope.status = 'You said the information was "' + answer + '".';
+                .then(function() {
+                    // console.log('successful hide show');
                 }, function() {
-                    $scope.status = 'You cancelled the dialog.';
+                    // console.log('dialog cancelled');
                 });
 
     }

@@ -1,18 +1,55 @@
 import angular from 'angular';
+import * as _ from 'lodash';
 
 export const namespace = 'app.services.cart';
 
 export default class CartService {
 
     constructor() {
-
     }
 
-    addToCart()
-    {
-        localStorage.setItem('test1', 'test2');
-        console.log(localStorage.getItem('test1'));
-        // localStorage.setItem(this.getSavedCheckoutKey(key), JSON.stringify(savedCheckoutData));
+    clearCart() {
+        return localStorage.removeItem('cart');
+    }
+
+    addToCart(product, quantity) {
+        var cartItems = this.retrieveCart();
+        var storedCartItem = this.retrieveItemFromCart(product);
+
+        if (storedCartItem) {
+            // Exists in cart already, remove, update quantity and put back in
+            _.remove(cartItems, { 'id': product.id });
+            storedCartItem.quantity = storedCartItem.quantity + 1;
+            cartItems.push(storedCartItem);
+        } else {
+            // New cart item
+            cartItems.push({id:product.id, product:product, quantity:quantity});
+        }
+
+        // Save cart
+        var storedCart = JSON.stringify(cartItems);
+        localStorage.setItem('cart', storedCart);
+    }
+
+    removeFromCart(product) {
+        var cartItems = this.retrieveCart();
+        _.remove(cartItems, { 'id': product.id });
+        var storedCart = JSON.stringify(cartItems);
+        localStorage.setItem('cart', storedCart);
+    }
+
+    retrieveCart() {
+        let cart = localStorage.getItem('cart');
+        if (!cart) {
+            return null;
+        } else {
+            return JSON.parse(cart);
+        }
+    }
+
+    retrieveItemFromCart(product) {
+        var cartItems = this.retrieveCart();
+        return _.find(cartItems, { 'id': product.id });
     }
 
 }
