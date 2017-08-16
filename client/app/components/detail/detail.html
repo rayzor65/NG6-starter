@@ -1,4 +1,12 @@
 <navbar></navbar>
-<div>
-    <h2>{{$ctrl.product}}</h2>
-</div>
+<md-content layout-padding>
+    <h2>{{$ctrl.product.title}}</h2>
+    <p>{{$ctrl.product.brand}}</p>
+    <p>${{$ctrl.product.price}}</p>
+    <p>{{$ctrl.product.description}}</p>
+    <md-input-container>
+        <input type="number" step="any" name="rate" min="1"
+               max="200" ng-model="$ctrl.quantity" />
+    </md-input-container>
+    <md-button ng-click="$ctrl.appendToCart()">Add to cart</md-button>
+</md-content>

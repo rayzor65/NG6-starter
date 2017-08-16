@@ -1,0 +1,24 @@
+<md-menu>
+    <span><a href="#" ng-click="$mdOpenMenu($event)">view cart</a></span>
+    <md-menu-content width="4">
+        <md-menu-item class="cartMenuItem" layout="row" ng-repeat="cartItem in this.cartItems">
+            <div>
+                <img src="media/{{cartItem.product.image}}" height="100" width="100"/>
+            </div>
+            <div flex="70">
+                <div layout="column">
+                    <div><strong>{{cartItem.product.title}}</strong></div>
+                    <div>x {{cartItem.quantity}}</div>
+                    <div>{{cartItem.product.brand}}</div>
+                </div>
+            </div>
+            <div>
+                <md-button ng-click="removeFromCart(cartItem.product)">X</md-button>
+            </div>
+        </md-menu-item>
+        <md-menu-item layout="row">
+            <md-button ui-sref="cart">View Cart</md-button>
+            <md-button>Checkout</md-button>
+        </md-menu-item>
+    </md-menu-content>
+</md-menu>

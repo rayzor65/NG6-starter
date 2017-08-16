@@ -10,9 +10,28 @@
         </div>
         <div layout="row" class="cart-body" ng-repeat="cartItem in $ctrl.cartItems">
             <div class="cart-column">{{cartItem.product.title}}<br>{{cartItem.product.image}}</div>
-            <div class="cart-column">{{cartItem.quantity}}</div>
-            <div class="cart-column">${{cartItem.product.price * cartItem.quantity}}</div>
+            <div class="cart-column">
+                <md-input-container>
+                    <input type="number" step="any" name="rate" min="1"
+                           max="200" ng-model="cartItem.quantity" />
+                </md-input-container>
+            </div>
+            <div class="cart-column">${{$ctrl.cartItemPrice(cartItem)}}</div>
             <div class="cart-column"><md-button ng-click="$ctrl.removeFromCart(cartItem.product)">Remove</md-button></div>
+        </div>
+        <div layout="row" class="cart-footer">
+            <div class="cart-column"></div>
+            <div class="cart-column">Total:${{$ctrl.cartTotal()}}</div>
+            <div class="cart-column">
+                <md-button ng-click="$ctrl.updateCart()">
+                    Update Cart
+                </md-button>
+            </div>
+            <div class="cart-column">
+                <md-button>
+                    Checkout
+                </md-button>
+            </div>
         </div>
     </md-content>
 </div>

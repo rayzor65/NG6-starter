@@ -3,6 +3,10 @@ import * as _ from 'lodash';
 
 export const namespace = 'app.services.cart';
 
+/**
+ * A cartItem is in the format. TODO: make interface or duck typing
+ * { id:1, product:{...}, quantity:1 }
+ */
 export default class CartService {
 
     constructor() {
@@ -12,14 +16,21 @@ export default class CartService {
         return localStorage.removeItem('cart');
     }
 
-    addToCart(product, quantity) {
+    addToCart(product, quantity, append) {
         var cartItems = this.retrieveCart();
         var storedCartItem = this.retrieveItemFromCart(product);
 
         if (storedCartItem) {
             // Exists in cart already, remove, update quantity and put back in
             _.remove(cartItems, { 'id': product.id });
-            storedCartItem.quantity = storedCartItem.quantity + 1;
+
+            // Can add to previous item quantity or rewrite item quantity
+            if (append) {
+                storedCartItem.quantity = storedCartItem.quantity + quantity;
+            } else {
+                storedCartItem.quantity = quantity;
+            }
+
             cartItems.push(storedCartItem);
         } else {
             // New cart item

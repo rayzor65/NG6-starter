@@ -7,7 +7,7 @@
         ullamco laboris nisi ut aliquip ex ea commodo consequat.
     </div>
 </div>
-<section>
+<md-content layout-padding>
     <div id="product-container">
             <div ng-repeat="product in $ctrl.products" class="product" id="product{{product.id}}">
                 <a href="#" ng-click="$ctrl.toggleOptions($event, product)">
@@ -19,4 +19,4 @@
             </div>
         </a>
     </div>
-</section>
+</md-content>

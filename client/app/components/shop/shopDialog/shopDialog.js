@@ -17,7 +17,7 @@ class ShopDialogController {
     }
 
     quickAddToCart() {
-        this.cartService.addToCart(this.product, 1);
+        this.cartService.addToCart(this.product, 1, false);
         this.$mdToast.show(
             this.$mdToast.simple()
                 .textContent('Added to cart')
