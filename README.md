@@ -16,3 +16,4 @@ To get a better of idea of the work done
 - Add product service for retrieving products/a product
 - Add cart service for all cart related actions
 - Added the dialog when clicking on a product for quick actions 
+- Added directive
